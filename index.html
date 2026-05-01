@@ -11,9 +11,30 @@
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #ffb347, #ffcc33, #ff7e5f);
+      overflow-x: hidden;
       color: #2b2b2b;
     }
 
+    /* 🌞 sole animato */
+    .sun {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, #fff7b2, #ffcc33);
+      border-radius: 50%;
+      box-shadow: 0 0 60px rgba(255, 204, 51, 0.8);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%   { transform: scale(1); opacity: 0.9; }
+      50%  { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
+    }
+
+    /* ✨ entrata morbida */
     .hero {
       height: 100vh;
       display: flex;
@@ -23,6 +44,12 @@
       text-align: center;
       color: white;
       padding: 20px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .hero h1 {
@@ -37,18 +64,24 @@
       opacity: 0.9;
     }
 
+    /* 🧊 sezione morbida */
     .section {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       margin: -80px auto 40px auto;
       padding: 50px;
       max-width: 900px;
       border-radius: 25px;
       box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      animation: slideUp 1.5s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .section h2 {
       color: #ff7e5f;
-      margin-top: 0;
     }
 
     .card {
@@ -57,6 +90,12 @@
       border-radius: 15px;
       margin-top: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
     }
 
     footer {
@@ -65,10 +104,31 @@
       font-size: 0.9em;
       opacity: 0.8;
     }
+
+    /* 🌊 effetto leggero di movimento background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 60%);
+      animation: drift 12s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes drift {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
   </style>
 </head>
 
 <body>
+
+  <div class="sun"></div>
 
   <div class="hero">
     <h1>Colori del Sole 🌞</h1>
@@ -77,23 +137,17 @@
 
   <div class="section">
     <h2>✨ Chi sono</h2>
-    <div class="card">
-      Un gruppo eterogeneo di appassionati.
-    </div>
+    <div class="card">Un gruppo eterogeneo di appassionati.</div>
 
     <h2>🎨 Cosa faccio</h2>
-    <div class="card">
-      Tanta voglia di cantare
-    </div>
+    <div class="card">Tanta voglia di cantare.</div>
 
     <h2>🌅 Visione</h2>
-    <div class="card">
-      Amiamo la sicilia, per questo siamo i “Colori del Sole”.
-    </div>
+    <div class="card">Amiamo la sicilia, per questo siamo i “Colori del Sole”.</div>
   </div>
 
   <footer>
-    Creato con ☀️ e curiosità
+    Creato con ☀️ e calma
   </footer>
 
 </body>
