@@ -1,10 +1,100 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-    <title>Colori del Sole</title>
+  <meta charset="UTF-8">
+  <title>Colori del Sole</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffb347, #ffcc33, #ff7e5f);
+      color: #2b2b2b;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin: 0;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .hero p {
+      font-size: 1.3em;
+      max-width: 600px;
+      opacity: 0.9;
+    }
+
+    .section {
+      background: rgba(255,255,255,0.9);
+      margin: -80px auto 40px auto;
+      padding: 50px;
+      max-width: 900px;
+      border-radius: 25px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .section h2 {
+      color: #ff7e5f;
+      margin-top: 0;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+  </style>
 </head>
+
 <body>
+
+  <div class="hero">
     <h1>Colori del Sole 🌞</h1>
-    <p>Il mio primo sito è online!</p>
+    <p>Un piccolo spazio dove luce, creatività e idee si incontrano.</p>
+  </div>
+
+  <div class="section">
+    <h2>✨ Chi sono</h2>
+    <div class="card">
+      Un gruppo eterogeneo di appassionati.
+    </div>
+
+    <h2>🎨 Cosa faccio</h2>
+    <div class="card">
+      Tanta voglia di cantare
+    </div>
+
+    <h2>🌅 Visione</h2>
+    <div class="card">
+      Amiamo la sicilia, per questo siamo i “Colori del Sole”.
+    </div>
+  </div>
+
+  <footer>
+    Creato con ☀️ e curiosità
+  </footer>
+
 </body>
 </html>
