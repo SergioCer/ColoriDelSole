@@ -18,6 +18,7 @@
 
     /* 🌞 sole */
 .sun {
+  transition: background 0.25s ease, transform 0.25s ease;
   cursor: pointer;
   z-index: 10;
   position: absolute;
@@ -187,6 +188,90 @@ function playNote(context, frequency, startTime, duration) {
   oscillator.stop(startTime + duration);
 }
 
+<script>
+function playNote(context, frequency, startTime, duration) {
+  const osc = context.createOscillator();
+  const gain = context.createGain();
+
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(frequency, startTime);
+
+  gain.gain.setValueAtTime(0.2, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+  osc.connect(gain);
+  gain.connect(context.destination);
+
+  osc.start(startTime);
+  osc.stop(startTime + duration);
+}
+
+/* 🌈 colori per nota */
+const colors = [
+  "#ff4d4d", // do (rosso)
+  "#ff914d", // re (arancio)
+  "#ffd166", // mi (giallo)
+  "#4caf50", // fa (verde)
+  "#00c9ff", // sol (azzurro)
+  "#3f51b5", // la (blu)
+  "#8e44ad", // si (viola)
+  "#ffffff"  // do alto (bianco)
+];
+
+function setSunColor(index) {
+  const sun = document.querySelector(".sun");
+  if (sun) {
+    sun.style.background = `radial-gradient(circle, ${colors[index]} 0%, #ffcc33 100%)`;
+  }
+}
+
+function resetSun() {
+  const sun = document.querySelector(".sun");
+  if (sun) {
+    sun.style.background = `radial-gradient(circle,
+      #fff7b2 0%,
+      #ffd166 40%,
+      #ffcc33 70%,
+      #ffb347 100%)`;
+  }
+}
+
+function playScale() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const ctx = new AudioContext();
+
+  const notes = [
+    261.63, // do
+    293.66, // re
+    329.63, // mi
+    349.23, // fa
+    392.00, // sol
+    440.00, // la
+    493.88, // si
+    523.25  // do alto
+  ];
+
+  const now = ctx.currentTime;
+
+  notes.forEach((freq, i) => {
+
+    // 🎵 suono
+    playNote(ctx, freq, now + i * 0.4, 0.35);
+
+    // 🌈 colore sincronizzato
+    setTimeout(() => {
+      setSunColor(i);
+    }, i * 400);
+  });
+
+  // 🔄 ritorno al normale
+  setTimeout(() => {
+    resetSun();
+  }, notes.length * 400 + 600);
+}
+</script>
+  
+  
 function playScale() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
