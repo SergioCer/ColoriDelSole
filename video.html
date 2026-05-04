@@ -30,6 +30,15 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
 
+    .video-player {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 20px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+
+    
     .note {
       font-size: 18px;
       line-height: 1.6;
@@ -72,9 +81,16 @@
       Presto saranno disponibili i video delle nostre esibizioni.
     </p>
 
+
+    <!-- 🎬 video -->
+  <video controls class="video-player">
+    <source src="abballati.mp4" type="video/mp4">
+    Il tuo browser non supporta il video.
+  </video>
+    
     <!-- placeholder video -->
     <div class="video-placeholder">
-      🎬 Video in arrivo...
+      🎬 Altri video in arrivo...
     </div>
 
     <a href="index.html">⬅️ Torna alla Home</a>
