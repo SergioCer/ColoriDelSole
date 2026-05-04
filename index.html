@@ -16,7 +16,7 @@
     }
 
     /* 🌞 sole */
-    .sun {
+.sun {
   position: absolute;
   top: 60px;
   right: 60px;
@@ -25,19 +25,23 @@
   border-radius: 50%;
 
   background: radial-gradient(circle,
-    #fff7b2 0%,
-    #ffd166 20%,
-    #ff7e5f 40%,
-    #ff4d6d 60%,
-    #845ec2 80%,
-    #00c9a7 100%
+    #fff7b2,
+    #ffd166,
+    #ff7e5f,
+    #ff4d6d,
+    #845ec2,
+    #00c9a7
   );
 
-  box-shadow: 0 0 80px rgba(255, 120, 100, 0.6);
-  animation: pulseColor 5s ease-in-out infinite;
+  background-size: 300% 300%;
+  animation: sunMove 6s ease-in-out infinite;
+
+  box-shadow:
+    0 0 60px rgba(255, 200, 80, 0.6),
+    0 0 120px rgba(255, 100, 150, 0.3);
 }
 
-
+/* alone esterno */
 .sun::after {
   content: "";
   position: absolute;
@@ -48,22 +52,22 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
 }
-    
-@keyframes pulseColor {
+
+/* animazione unica e corretta */
+@keyframes sunMove {
   0% {
+    background-position: 0% 50%;
     transform: scale(1);
-    filter: hue-rotate(0deg);
   }
   50% {
-    transform: scale(1.15);
-    filter: hue-rotate(25deg);
+    background-position: 100% 50%;
+    transform: scale(1.12);
   }
   100% {
+    background-position: 0% 50%;
     transform: scale(1);
-    filter: hue-rotate(0deg);
   }
-}
-    
+} 
 
     /* 🏠 hero */
     .hero {
