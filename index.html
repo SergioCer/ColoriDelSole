@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="it">
+
+<a href="#" class="sun" onclick="playScale(); return false;"></a>
+  
 <head>
   <meta charset="UTF-8">
   <title>Colori del Sole - Coro Folk</title>
@@ -45,6 +48,10 @@
   transform: translate(-50%, -50%);
   font-size: 24px;
 }
+
+.sun:hover {
+  transform: scale(1.05);
+}    
     
 /* 🌞 lampeggio morbido */
 @keyframes sunBlink {
@@ -162,6 +169,49 @@
   </style>
 </head>
 
+<script>
+function playNote(context, frequency, startTime, duration) {
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+
+  oscillator.type = "sine"; // suono pulito tipo flauto
+  oscillator.frequency.setValueAtTime(frequency, startTime);
+
+  gain.gain.setValueAtTime(0.2, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+  oscillator.connect(gain);
+  gain.connect(context.destination);
+
+  oscillator.start(startTime);
+  oscillator.stop(startTime + duration);
+}
+
+function playScale() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const ctx = new AudioContext();
+
+  // scala DO maggiore (frequenze base)
+  const notes = [
+    261.63, // do
+    293.66, // re
+    329.63, // mi
+    349.23, // fa
+    392.00, // sol
+    440.00, // la
+    493.88, // si
+    523.25  // do alto
+  ];
+
+  const now = ctx.currentTime;
+
+  notes.forEach((freq, i) => {
+    playNote(ctx, freq, now + i * 0.4, 0.35);
+  });
+}
+</script>
+
+  
 <body>
 
   <div class="sun"></div>
