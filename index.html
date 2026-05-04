@@ -25,88 +25,76 @@
   height: 160px;
   border-radius: 50%;
 
-  /* partenza quasi invisibile */
+  /* base: solo luce centrale */
   background: radial-gradient(circle,
-    rgba(255,255,255,0.9) 0%,
-    transparent 10%
+    #ffffff 0%,
+    #fff7b2 10%,
+    transparent 30%
   );
 
   animation: sunCycle 60s ease-in-out infinite;
-
-  box-shadow: 0 0 0 rgba(255,255,255,0);
 }
-    
+
+/* ANIMAZIONE A STRATI (NO ROTAZIONE) */
 @keyframes sunCycle {
 
-  /* 🌑 INIZIO: quasi nulla */
+  /* 🌑 nascita */
   0% {
     transform: scale(0.2);
     opacity: 0;
-    filter: blur(6px);
     background: radial-gradient(circle,
-      rgba(255,255,255,0.9) 0%,
-      transparent 15%
+      #ffffff 0%,
+      transparent 25%
     );
   }
 
-  /* ⚪ NASCITA NUCLEO */
+  /* ⚪ nucleo */
   10% {
     transform: scale(0.6);
     opacity: 1;
-    filter: blur(2px);
     background: radial-gradient(circle,
       #ffffff 0%,
-      #fff7b2 10%,
+      #fff7b2 15%,
       transparent 40%
     );
   }
 
-  /* 🌈 ESPANSIONE PRISMA */
+  /* 🌈 espansione PRISMA (dal centro verso fuori) */
   30% {
     transform: scale(1);
     opacity: 1;
-    filter: blur(0px);
-    background: conic-gradient(
-      #ff0000,
-      #ff7f00,
-      #ffff00,
-      #00ff00,
-      #00ffff,
-      #0000ff,
-      #8b00ff,
-      #ff0000
+    background: radial-gradient(circle,
+      #ffffff 0%,
+      #fff7b2 10%,
+      #ffb347 25%,
+      #ff7e5f 40%,
+      #c77dff 60%,
+      #4dd0e1 80%,
+      transparent 100%
     );
   }
 
-  /* 💓 PULSAZIONE */
+  /* 💓 leggero respiro */
   45% {
-    transform: scale(1.08);
-    opacity: 1;
+    transform: scale(1.05);
   }
 
   55% {
     transform: scale(1);
   }
 
-  /* 🌘 COLLASSO VERSO CENTRO */
-  70% {
-    transform: scale(0.5);
-    opacity: 0.6;
-    filter: blur(2px);
+  /* 🌘 collasso verso centro */
+  75% {
+    transform: scale(0.4);
+    opacity: 0.5;
   }
 
-  /* 🌑 SCOMPARSA */
-  85% {
+  /* 🌑 sparizione */
+  90% {
     transform: scale(0.2);
     opacity: 0;
-    filter: blur(8px);
-    background: radial-gradient(circle,
-      rgba(255,255,255,0.8),
-      transparent 60%
-    );
   }
 
-  /* 🔁 RESET */
   100% {
     transform: scale(0.2);
     opacity: 0;
@@ -217,9 +205,7 @@
 
 <body>
 
-<div class="sun">
-  <div class="sun"></div>
-</div>
+<div class="sun"></div>
   
   <div class="hero">
     <h1>🎶 I Colori del Sole</h1>
