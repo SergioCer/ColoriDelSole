@@ -25,54 +25,55 @@
   height: 180px;
   border-radius: 50%;
 
-  /* base: spettro completo sempre presente */
-  background: conic-gradient(
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #00ffff,
-    #0000ff,
-    #8b00ff,
-    #ff0000
+  /* base: luce centrale + espansione naturale */
+  background: radial-gradient(circle,
+
+    #ffffff 0%,
+    #fff8cc 12%,
+    #ffe08a 22%,
+    #ffb347 32%,
+    #ff7e5f 42%,
+    #ff4d6d 52%,
+    #c77dff 65%,
+    #00c9ff 78%,
+    #00ff9d 90%,
+    transparent 100%
   );
 
-  animation: sunBreath 12s ease-in-out infinite;
+  animation: sunBreath 20s ease-in-out infinite;
 
-  /* rende la luce più morbida */
-  filter: saturate(1.2) brightness(1.05);
+  filter: blur(0.2px) saturate(1.2);
 }
 
-.sun::before {
+.sun::after {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: 50%;
 
   background: radial-gradient(circle,
-    rgba(255,255,255,0.9) 0%,
-    rgba(255,255,255,0.4) 30%,
-    rgba(255,255,255,0.0) 70%
+    rgba(255,255,255,0.8) 0%,
+    rgba(255,255,255,0.2) 40%,
+    transparent 70%
   );
 
-  animation: coreFade 12s ease-in-out infinite;
+  mix-blend-mode: screen;
 }
     
 @keyframes sunBreath {
-
   0% {
-    opacity: 0.4;
-    filter: saturate(1) brightness(1);
+    transform: scale(0.85);
+    opacity: 0.5;
   }
 
   50% {
+    transform: scale(1);
     opacity: 1;
-    filter: saturate(1.4) brightness(1.1);
   }
 
   100% {
-    opacity: 0.4;
-    filter: saturate(1) brightness(1);
+    transform: scale(0.85);
+    opacity: 0.5;
   }
 }
     
