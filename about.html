@@ -1,20 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
-    <title>I Colori del Sole - About</title>
+    <meta charset="UTF-8">
+    <title>Colori del Sole - Eventi</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ffb347, #ffcc33, #ff7e5f);
+            color: #2b2b2b;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            color: white;
+        }
+
+        .content {
+            background: rgba(255,255,255,0.95);
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .event {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        /* 🔘 pulsanti */
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: block;
+            width: 260px;
+            margin: 12px auto;
+            padding: 15px;
+            font-size: 18px;
+            color: white;
+            background: #4CAF50;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #3e8e41;
+            transform: scale(1.05);
+        }
+
+        /* secondo pulsante con colore diverso */
+        .btn-secondary {
+            background: #ff7e5f;
+        }
+
+        .btn-secondary:hover {
+            background: #e0674d;
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <h1>Nostre partecipazioni</h1>
+    <h1>🎶 Nostre partecipazioni</h1>
 
-    <p>
-        BIF 01-31 Maggio 2026 Brighton Italian Festival –
-        <a href="https://brightonitalianfestival.com" target="_blank">
-            Visita il sito ufficiale
-        </a>
-    </p>
+    <div class="content">
 
-    <a href="index.html">Torna alla Home</a>
+        <div class="event">
+            BIF 1-31 Maggio 2026 Brighton Italian Festival –
+            <a href="https://brightonitalianfestival.com" target="_blank">
+                sito ufficiale
+            </a>
+        </div>
+
+        <div class="buttons">
+
+            <a href="index.html" class="btn">
+                ⬅️ Torna alla Home
+            </a>
+
+            <a href="https://www.facebook.com/share/1CXFDjboCC" target="_blank" class="btn btn-secondary">
+                👍 Seguici su Facebook
+            </a>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
