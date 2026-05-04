@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sostienici - In lavorazione</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+
+      background: linear-gradient(135deg, #ffb347, #ffcc33, #ff7e5f);
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #2b2b2b;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.95);
+      padding: 40px;
+      max-width: 600px;
+      width: 90%;
+
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+
+      text-align: center;
+    }
+
+    .sun-icon {
+      font-size: 60px;
+      margin-bottom: 10px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+
+    h1 {
+      margin: 10px 0;
+      color: #ff7e5f;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 14px;
+      border-radius: 20px;
+
+      background: #ffcc33;
+      font-weight: 600;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 20px;
+
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+
+      border-radius: 10px;
+      font-weight: 500;
+
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background: #3e8e41;
+      transform: scale(1.05);
+    }
+
+    .back {
+      display: block;
+      margin-top: 20px;
+      color: #ff7e5f;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <div class="sun-icon">☀️</div>
+
+    <h1>Sostieni il coro</h1>
+
+    <p>
+      Stiamo lavorando per attivare un sistema di donazioni semplice e sicuro.<br>
+      Presto potrai sostenerci direttamente da questa pagina 🎶
+    </p>
+
+    <div class="tag">Pagina in lavorazione</div>
+
+    <br>
+
+    <a href="index.html" class="button">
+      ⬅️ Torna alla Home
+    </a>
+
+    <a href="mailto:tuamail@email.com" class="back">
+      Contattaci per informazioni
+    </a>
+
+  </div>
+
+</body>
+</html>
