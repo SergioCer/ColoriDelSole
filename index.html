@@ -167,7 +167,54 @@
     transform: scale(1); /* torna alla dimensione normale */
   }
 }
-  
+
+
+@media (max-width: 768px) {
+
+  /* 🌞 sole più piccolo e spostato */
+  .sun {
+    width: 120px;
+    height: 120px;
+    top: 20px;
+    right: 20px;
+  }
+
+  /* 🏠 hero meno “invasiva” */
+  .hero {
+    height: auto;
+    padding: 100px 20px 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2em;
+  }
+
+  .hero p {
+    font-size: 1em;
+  }
+
+  /* 🖼 immagine adattiva */
+  .hero-img {
+    width: 95%;
+    max-width: 100%;
+  }
+
+  /* 📦 contenuti più compatti */
+  .section {
+    margin: 20px 10px;
+    padding: 20px;
+    border-radius: 15px;
+  }
+
+  /* 🔘 bottoni fluidi */
+  .button {
+    width: 90%;
+    font-size: 16px;
+  }
+}
+    
+
+    
   </style>
 </head>
 
@@ -252,55 +299,7 @@ async function playScale() {
   }, notes.length * 400 + 600);
 }
 </script>
-
-
-  
-@media (max-width: 768px) {
-
-  /* 🌞 sole più piccolo e spostato */
-  .sun {
-    width: 120px;
-    height: 120px;
-    top: 20px;
-    right: 20px;
-  }
-
-  /* 🏠 hero meno “invasiva” */
-  .hero {
-    height: auto;
-    padding: 100px 20px 40px 20px;
-  }
-
-  .hero h1 {
-    font-size: 2em;
-  }
-
-  .hero p {
-    font-size: 1em;
-  }
-
-  /* 🖼 immagine adattiva */
-  .hero-img {
-    width: 95%;
-    max-width: 100%;
-  }
-
-  /* 📦 contenuti più compatti */
-  .section {
-    margin: 20px 10px;
-    padding: 20px;
-    border-radius: 15px;
-  }
-
-  /* 🔘 bottoni fluidi */
-  .button {
-    width: 90%;
-    font-size: 16px;
-  }
-}
-
-
-  
+ 
   
 <body>
 
