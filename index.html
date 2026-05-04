@@ -172,24 +172,6 @@
 
 <script>
 function playNote(context, frequency, startTime, duration) {
-  const oscillator = context.createOscillator();
-  const gain = context.createGain();
-
-  oscillator.type = "sine"; // suono pulito tipo flauto
-  oscillator.frequency.setValueAtTime(frequency, startTime);
-
-  gain.gain.setValueAtTime(0.2, startTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-
-  oscillator.connect(gain);
-  gain.connect(context.destination);
-
-  oscillator.start(startTime);
-  oscillator.stop(startTime + duration);
-}
-
-<script>
-function playNote(context, frequency, startTime, duration) {
   const osc = context.createOscillator();
   const gain = context.createGain();
 
@@ -236,11 +218,11 @@ function resetSun() {
   }
 }
 
-function playScale() {
+async function playScale() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
 
-  ctx.resume();
+  await ctx.resume();
 
   const notes = [
     261.63,
@@ -257,16 +239,13 @@ function playScale() {
 
   notes.forEach((freq, i) => {
 
-    // 🎵 suono
     playNote(ctx, freq, now + i * 0.4, 0.35);
 
-    // 🌈 colore sincronizzato
     setTimeout(() => {
       setSunColor(i);
     }, i * 400);
   });
 
-  // 🔄 reset finale
   setTimeout(() => {
     resetSun();
   }, notes.length * 400 + 600);
