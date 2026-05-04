@@ -37,6 +37,15 @@
   animation: sunBlink 6s ease-in-out infinite;
 }
 
+.sun::before {
+  content: "🎶";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+}
+    
 /* 🌞 lampeggio morbido */
 @keyframes sunBlink {
   0%, 100% {
