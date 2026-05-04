@@ -20,55 +20,55 @@
   position: absolute;
   top: 60px;
   right: 60px;
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
 
+  /* centro sole + prisma esterno */
   background: radial-gradient(circle,
-    #fff7b2,
-    #ffd166,
-    #ff7e5f,
-    #ff4d6d,
-    #845ec2,
-    #00c9a7
+    #fffbe6 0%,
+    #ffe08a 20%,
+    #ffb347 35%,
+    #ff7e5f 50%,
+    #c77dff 70%,
+    #4dd0e1 85%,
+    transparent 100%
   );
 
-  background-size: 300% 300%;
-  animation: sunMove 6s ease-in-out infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  box-shadow:
-    0 0 60px rgba(255, 200, 80, 0.6),
-    0 0 120px rgba(255, 100, 150, 0.3);
+  animation: sunBirth 8s ease-in-out infinite;
+
+  filter: blur(0.2px);
 }
-
-/* alone esterno */
-.sun::after {
-  content: "";
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  width: 200px;
-  height: 200px;
+    
+.sun-core {
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #fff7b2, #ffd166, #ffb347);
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+  box-shadow: 0 0 40px rgba(255, 200, 80, 0.8);
 }
 
-/* animazione unica e corretta */
-@keyframes sunMove {
+@keyframes sunBirth {
   0% {
-    background-position: 0% 50%;
-    transform: scale(1);
+    transform: scale(0.7);
+    opacity: 0;
+    filter: blur(2px);
   }
-  50% {
-    background-position: 100% 50%;
-    transform: scale(1.12);
+  40% {
+    opacity: 0.6;
   }
   100% {
-    background-position: 0% 50%;
     transform: scale(1);
+    opacity: 1;
+    filter: blur(0px);
   }
-} 
-
+}
+    
+    
     /* 🏠 hero */
     .hero {
       height: 85vh;
@@ -173,8 +173,10 @@
 
 <body>
 
-  <div class="sun"></div>
-
+<div class="sun">
+  <div class="sun-core"></div>
+</div>
+  
   <div class="hero">
     <h1>🎶 I Colori del Sole</h1>
     <img src="foto-gruppo.jpg" class="hero-img" alt="Coro Colori del Sole">
