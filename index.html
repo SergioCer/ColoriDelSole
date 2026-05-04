@@ -21,84 +21,36 @@
   top: 60px;
   right: 60px;
 
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
 
-  /* base: solo luce centrale */
-  background: radial-gradient(circle,
-    #ffffff 0%,
-    #fff7b2 10%,
-    transparent 30%
+  /* PRISMA COMPLETO STABILE */
+  background: conic-gradient(
+    from 0deg,
+    #ff0000,
+    #ff7f00,
+    #ffff00,
+    #00ff00,
+    #00ffff,
+    #0000ff,
+    #8b00ff,
+    #ff0000
   );
 
-  animation: sunCycle 60s ease-in-out infinite;
-}
+  /* centro luminoso reale */
+  -webkit-mask: radial-gradient(circle,
+    white 0%,
+    white 35%,
+    transparent 70%
+  );
+  mask: radial-gradient(circle,
+    white 0%,
+    white 35%,
+    transparent 70%
+  );
 
-/* ANIMAZIONE A STRATI (NO ROTAZIONE) */
-@keyframes sunCycle {
-
-  /* 🌑 nascita */
-  0% {
-    transform: scale(0.2);
-    opacity: 0;
-    background: radial-gradient(circle,
-      #ffffff 0%,
-      transparent 25%
-    );
-  }
-
-  /* ⚪ nucleo */
-  10% {
-    transform: scale(0.6);
-    opacity: 1;
-    background: radial-gradient(circle,
-      #ffffff 0%,
-      #fff7b2 15%,
-      transparent 40%
-    );
-  }
-
-  /* 🌈 espansione PRISMA (dal centro verso fuori) */
-  30% {
-    transform: scale(1);
-    opacity: 1;
-    background: radial-gradient(circle,
-      #ffffff 0%,
-      #fff7b2 10%,
-      #ffb347 25%,
-      #ff7e5f 40%,
-      #c77dff 60%,
-      #4dd0e1 80%,
-      transparent 100%
-    );
-  }
-
-  /* 💓 leggero respiro */
-  45% {
-    transform: scale(1.05);
-  }
-
-  55% {
-    transform: scale(1);
-  }
-
-  /* 🌘 collasso verso centro */
-  75% {
-    transform: scale(0.4);
-    opacity: 0.5;
-  }
-
-  /* 🌑 sparizione */
-  90% {
-    transform: scale(0.2);
-    opacity: 0;
-  }
-
-  100% {
-    transform: scale(0.2);
-    opacity: 0;
-  }
+  animation: sunLife 60s ease-in-out infinite;
 }
     
     /* 🏠 hero */
