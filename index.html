@@ -17,22 +17,53 @@
 
     /* 🌞 sole */
     .sun {
-      position: absolute;
-      top: 60px;
-      right: 60px;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle, #fff7b2, #ffcc33);
-      border-radius: 50%;
-      box-shadow: 0 0 60px rgba(255, 204, 51, 0.8);
-      animation: pulse 4s ease-in-out infinite;
-    }
+  position: absolute;
+  top: 60px;
+  right: 60px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.15); }
-      100% { transform: scale(1); }
-    }
+  background: radial-gradient(circle,
+    #fff7b2 0%,
+    #ffd166 20%,
+    #ff7e5f 40%,
+    #ff4d6d 60%,
+    #845ec2 80%,
+    #00c9a7 100%
+  );
+
+  box-shadow: 0 0 80px rgba(255, 120, 100, 0.6);
+  animation: pulseColor 5s ease-in-out infinite;
+}
+
+
+.sun::after {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), transparent 70%);
+}
+    
+@keyframes pulseColor {
+  0% {
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    transform: scale(1.15);
+    filter: hue-rotate(25deg);
+  }
+  100% {
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+  }
+}
+    
 
     /* 🏠 hero */
     .hero {
@@ -141,7 +172,7 @@
   <div class="sun"></div>
 
   <div class="hero">
-    <h1>🎶 Colori del Sole</h1>
+    <h1>🎶 I Colori del Sole</h1>
     <img src="foto-gruppo.jpg" class="hero-img" alt="Coro Colori del Sole">
     <p>Coro folk siciliano: tradizione, musica e cultura popolare dal vivo.</p>
   </div>
