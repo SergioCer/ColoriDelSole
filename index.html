@@ -25,29 +25,17 @@
   height: 180px;
   border-radius: 50%;
 
-  /* PRISMA COMPLETO STABILE */
-  background: conic-gradient(
-    from 0deg,
-    #ff0000,
-    #ff7f00,
-    #ffff00,
-    #00ff00,
-    #00ffff,
-    #0000ff,
-    #8b00ff,
-    #ff0000
-  );
-
-  /* centro luminoso reale */
-  -webkit-mask: radial-gradient(circle,
-    white 0%,
-    white 35%,
-    transparent 70%
-  );
-  mask: radial-gradient(circle,
-    white 0%,
-    white 35%,
-    transparent 70%
+  /* PRISMA CONCENTRICO (NON A SPICCHI) */
+  background: radial-gradient(circle,
+    #ffffff 0%,
+    #fff7b2 10%,
+    #ffd166 20%,
+    #ffb347 30%,
+    #ff7e5f 45%,
+    #ff4d6d 60%,
+    #845ec2 75%,
+    #00c9a7 90%,
+    transparent 100%
   );
 
   animation: sunLife 60s ease-in-out infinite;
@@ -55,44 +43,38 @@
 
 @keyframes sunLife {
 
-  /* nascita */
   0% {
     transform: scale(0.2);
     opacity: 0;
-    filter: blur(6px);
+    filter: blur(8px);
   }
 
-  /* apparizione morbida */
   15% {
-    transform: scale(0.7);
+    transform: scale(0.6);
     opacity: 1;
-    filter: blur(2px);
+    filter: blur(3px);
   }
 
-  /* pieno sole */
   35% {
     transform: scale(1);
     opacity: 1;
     filter: blur(0px);
   }
 
-  /* lieve respiro */
   55% {
     transform: scale(1.05);
   }
 
-  65% {
+  70% {
     transform: scale(1);
   }
 
-  /* dissoluzione */
   85% {
-    transform: scale(0.6);
+    transform: scale(0.5);
     opacity: 0.3;
-    filter: blur(3px);
+    filter: blur(4px);
   }
 
-  /* sparizione */
   100% {
     transform: scale(0.2);
     opacity: 0;
