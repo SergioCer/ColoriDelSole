@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Colori del Sole - Video</title>
 
-  <link rel="stylesheet" href="styles.css">    
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #ffb347, #ffcc33, #ff7e5f);
       text-align: center;
       color: #2b2b2b;
@@ -23,28 +24,29 @@
 
     .box {
       background: rgba(255,255,255,0.95);
-      max-width: 800px;
+      max-width: 850px;
       margin: 40px auto;
       padding: 30px;
       border-radius: 20px;
       box-shadow: 0 15px 40px rgba(0,0,0,0.2);
     }
 
-    .video-player {
-  width: 100%;
-  max-width: 700px;
-  margin-top: 20px;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-}
-
-    
     .note {
       font-size: 18px;
       line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    /* 🔘 link stile semplice */
+    video {
+      width: 100%;
+      max-width: 750px;
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      display: block;
+      margin: 0 auto 20px auto;
+      background: black;
+    }
+
     a {
       display: inline-block;
       margin-top: 20px;
@@ -57,16 +59,14 @@
       text-decoration: underline;
     }
 
-    /* 🎬 placeholder video */
-    .video-placeholder {
-      margin-top: 25px;
-      padding: 40px;
+    .placeholder {
+      margin-top: 20px;
+      padding: 30px;
       border: 2px dashed #ff7e5f;
       border-radius: 15px;
       color: #777;
       background: #fff;
     }
-
   </style>
 </head>
 
@@ -77,19 +77,17 @@
   <div class="box">
 
     <p class="note">
-      Questa sezione è attualmente in lavorazione.<br>
-      Presto saranno disponibili i video delle nostre esibizioni.
+      Questa sezione è in aggiornamento.<br>
+      Ecco una nostra prima esibizione 🎶
     </p>
 
+    <!-- 🎬 VIDEO -->
+    <video controls>
+      <source src="abballati.mp4" type="video/mp4">
+      Il tuo browser non supporta il video.
+    </video>
 
-    <!-- 🎬 video -->
-  <video controls class="video-player">
-    <source src="abballati.mp4" type="video/mp4">
-    Il tuo browser non supporta il video.
-  </video>
-    
-    <!-- placeholder video -->
-    <div class="video-placeholder">
+    <div class="placeholder">
       🎬 Altri video in arrivo...
     </div>
 
