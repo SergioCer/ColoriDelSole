@@ -40,6 +40,16 @@ h1 {
 }
 
 /* BOTTONI */
+
+a.btn,
+a.btn-back {
+  text-decoration: none;
+}
+
+.btn::before {
+  margin-right: 8px;
+}
+
 .btn {
   display: block;
   width: 260px;
