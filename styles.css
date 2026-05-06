@@ -39,7 +39,7 @@ h1 {
   text-decoration: underline;
 }
 
-/* BOTTONI (UNICO STANDARD) */
+/* BOTTONI */
 .btn {
   display: block;
   width: 260px;
@@ -55,6 +55,25 @@ h1 {
 
 .btn:hover {
   background: #3e8e41;
+  transform: scale(1.05);
+}
+
+.btn-home {
+  display: block;
+  width: 260px;
+  margin: 12px auto;
+  padding: 15px;
+  font-size: 18px;
+  color: #2b2b2b;
+  background: #ffcc33;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-home:hover {
+  background: #ffb347;
   transform: scale(1.05);
 }
 
