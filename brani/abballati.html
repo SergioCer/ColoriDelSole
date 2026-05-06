@@ -15,7 +15,9 @@
 <div class="container">
 
   <!-- 🖼 immagine -->
-  <img src="../media/img/abballati.jpg" alt="Copertina brano Abballati">
+  <img src="../media/img/abballati.jpg" 
+       alt="Copertina brano Abballati"
+       style="max-width:100%; height:auto; border-radius:12px;">
 
   <!-- 📖 descrizione -->
   <h2>📖 Descrizione</h2>
@@ -37,13 +39,28 @@
     <source src="../media/audio/abballati.mp3" type="audio/mpeg">
   </audio>
 
-  <div class="container pdf-container">
-  <!-- 📝 pdf -->
-  <h2>📄 Testo e partitura</h2>
-  <iframe src="../media/pdf/abballati.pdf"
-    style="width:100%; height:650px; border:none; border-radius:12px;"></iframe>
+  <!-- 📝 PDF DESKTOP -->
+  <div class="pdf-desktop">
+
+    <h2>📄 Testo e partitura</h2>
+
+    <iframe src="../media/pdf/abballati.pdf"
+      style="width:100%; height:650px; border:none; border-radius:12px;">
+    </iframe>
+
   </div>
-    
+
+  <!-- 📱 PDF MOBILE -->
+  <div class="pdf-mobile">
+
+    <h2>📄 Testo e partitura</h2>
+
+    <a class="btn" href="../media/pdf/abballati.pdf" target="_blank">
+      📄 Apri PDF
+    </a>
+
+  </div>
+
   <!-- 🎬 video -->
   <h2>🎬 Video</h2>
   <video controls>
