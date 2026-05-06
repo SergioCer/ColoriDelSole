@@ -1,1 +1,14 @@
-
+[
+  {
+    "id": "pusteria",
+    "titolo": "Festival Pusteria 2025",
+    "cover": "img/pusteria/copertina.jpg",
+    "descrizione": "Esperienza tra cori internazionali"
+  },
+  {
+    "id": "brighton",
+    "titolo": "Brighton Italian Festival",
+    "cover": "img/brighton/copertina.jpg",
+    "descrizione": "Trasferta musicale in Inghilterra"
+  }
+]
