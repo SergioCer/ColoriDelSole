@@ -3,14 +3,15 @@
   "foto": [
     {
       "src": "img/pusteria/foto1.jpg",
-      "caption": "Prove in teatro"
+      "caption": "Prove in albergo, stanchi ma felici !"
     },
     {
       "src": "img/pusteria/foto2.jpg",
-      "caption": "Concerto serale"
+      "caption": "Gita sul lago di Bries"
     },
     {
       "src": "img/pusteria/foto3.jpg"
+      "caption": "Uno dei tanti spettacoli all'aperto"
     }
   ]
 }
