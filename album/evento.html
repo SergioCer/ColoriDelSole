@@ -1,1 +1,168 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evento</title>
 
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .photo {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .photo:hover {
+      transform: scale(1.03);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    /* SLIDESHOW */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 70%;
+      border-radius: 10px;
+    }
+
+    .lightbox p {
+      color: white;
+      margin-top: 10px;
+    }
+
+    .controls {
+      margin-top: 15px;
+    }
+
+    .controls button {
+      margin: 0 10px;
+      padding: 10px 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 id="titolo">Evento</h1>
+
+<div class="container">
+
+  <div id="gallery" class="gallery"></div>
+
+  <a class="btn-back" href="index.html">⬅️ Torna agli eventi</a>
+  <a class="btn" href="../index.html">🏠 Home</a>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <img id="lightbox-img">
+  <p id="lightbox-caption"></p>
+
+  <div class="controls">
+    <button onclick="prev()">⬅️</button>
+    <button onclick="next()">➡️</button>
+    <button onclick="closeLightbox()">❌</button>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+let foto = [];
+let current = 0;
+
+fetch(`data/${id}.json`)
+  .then(res => res.json())
+  .then(data => {
+
+    document.getElementById("titolo").textContent = data.titolo;
+
+    const gallery = document.getElementById("gallery");
+    foto = data.foto;
+
+    foto.forEach((f, index) => {
+
+      const div = document.createElement("div");
+      div.className = "photo";
+
+      div.innerHTML = `
+        <img src="${f.src}" alt="">
+        ${f.caption ? `<div class="caption">${f.caption}</div>` : ""}
+      `;
+
+      div.onclick = () => openLightbox(index);
+
+      gallery.appendChild(div);
+    });
+
+  });
+
+function openLightbox(index) {
+  current = index;
+  document.getElementById("lightbox").style.display = "flex";
+  updateLightbox();
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function updateLightbox() {
+  document.getElementById("lightbox-img").src = foto[current].src;
+  document.getElementById("lightbox-caption").textContent = foto[current].caption || "";
+}
+
+function next() {
+  current = (current + 1) % foto.length;
+  updateLightbox();
+}
+
+function prev() {
+  current = (current - 1 + foto.length) % foto.length;
+  updateLightbox();
+}
+</script>
+
+</body>
+</html>
