@@ -92,6 +92,11 @@ a.btn-back {
   text-decoration: none;
 }
 
+/* Adattamento PDF */
+.pdf-container {
+  max-width: 1000px;
+}
+
 /* VIDEO */
 video {
   width: 100%;
