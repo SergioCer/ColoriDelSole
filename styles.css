@@ -58,6 +58,40 @@ h1 {
   transform: scale(1.05);
 }
 
+.box {
+  background: rgba(255,255,255,0.95);
+  max-width: 850px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.note {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+video {
+  width: 100%;
+  max-width: 750px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+  display: block;
+  margin: 0 auto 20px auto;
+  background: black;
+}
+
+.placeholder {
+  margin-top: 20px;
+  padding: 30px;
+  border: 2px dashed #ff7e5f;
+  border-radius: 15px;
+  color: #777;
+  background: #fff;
+}
+
 @media (max-width: 768px) {
 
   body {
