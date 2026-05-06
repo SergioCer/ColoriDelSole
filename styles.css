@@ -12,7 +12,7 @@ h1 {
   color: white;
 }
 
-/* ===== CONTENITORE UNICO BASE ===== */
+/* ===== CONTENITORE ===== */
 .container {
   background: rgba(255,255,255,0.95);
   max-width: 800px;
@@ -39,7 +39,10 @@ h1 {
   text-decoration: underline;
 }
 
-/* 🔘 BASE BOTTONI */
+/* =========================
+   BOTTONI (HOME / BACK)
+========================= */
+
 .btn,
 .btn-back {
   display: block;
@@ -51,39 +54,27 @@ h1 {
   border-radius: 10px;
   text-decoration: none;
   transition: 0.3s;
+  text-align: center;
 }
 
-.btn {
-  background: #4CAF50; /* HOME */
-}
-
-.btn-back {
-  background: #ff7e5f; /* BACK */
-}
-
-/* 🟢 bottone principale (HOME) */
+/* HOME */
 .btn {
   background: #4CAF50;
 }
 
-/* 🔙 bottone secondario (INDIETRO) */
+.btn:hover {
+  background: #3e8e41;
+  transform: scale(1.05);
+}
+
+/* BACK */
 .btn-back {
   background: #ff7e5f;
 }
 
-/* hover condiviso */
-.btn:hover,
-.btn-back:hover {
-  transform: scale(1.05);
-}
-
-/* hover differenziati */
-.btn:hover {
-  background: #3e8e41;
-}
-
 .btn-back:hover {
   background: #e96b4d;
+  transform: scale(1.05);
 }
 
 /* sicurezza link */
@@ -92,12 +83,16 @@ a.btn-back {
   text-decoration: none;
 }
 
-/* Adattamento PDF */
+/* =========================
+   PDF DESKTOP
+========================= */
 .pdf-container {
   max-width: 1000px;
 }
 
-/* VIDEO */
+/* =========================
+   VIDEO
+========================= */
 video {
   width: 100%;
   max-width: 750px;
@@ -108,7 +103,9 @@ video {
   background: black;
 }
 
-/* LISTE */
+/* =========================
+   LISTE
+========================= */
 ul {
   list-style: none;
   padding: 0;
@@ -125,7 +122,9 @@ li::before {
   content: "🎵 ";
 }
 
-/* SUPPORT PAGE */
+/* =========================
+   SUPPORT PAGE
+========================= */
 .sun-icon {
   font-size: 60px;
   margin-bottom: 10px;
@@ -168,7 +167,21 @@ li::before {
   background: #fff;
 }
 
-/* MOBILE */
+/* =========================
+   PDF MOBILE SWITCH
+========================= */
+
+.pdf-desktop {
+  display: block;
+}
+
+.pdf-mobile {
+  display: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
 
   body {
@@ -180,11 +193,23 @@ li::before {
     padding: 20px;
   }
 
-  .btn {
-    width: 90%;
-  }
-
   h1 {
     font-size: 2em;
+  }
+
+  .btn,
+  .btn-back {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  /* PDF switch */
+  .pdf-desktop {
+    display: none;
+  }
+
+  .pdf-mobile {
+    display: block;
+    text-align: center;
   }
 }
