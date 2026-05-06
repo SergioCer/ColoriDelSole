@@ -58,22 +58,21 @@ h1 {
   transform: scale(1.05);
 }
 
-.btn-home {
+.btn-back {
   display: block;
   width: 260px;
   margin: 12px auto;
   padding: 15px;
   font-size: 18px;
-  color: #2b2b2b;
-  background: #ffcc33;
+  color: white;
+  background: #4CAF50;
   border-radius: 10px;
   text-decoration: none;
-  font-weight: 600;
   transition: 0.3s;
 }
 
-.btn-home:hover {
-  background: #ffb347;
+.btn-back:hover {
+  background: #3e8e41;
   transform: scale(1.05);
 }
 
