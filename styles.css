@@ -6,20 +6,23 @@ body {
   text-align: center;
 }
 
+/* TITOLI */
 h1 {
   margin-top: 50px;
   color: white;
 }
 
-.content {
+/* ===== CONTENITORE UNICO BASE ===== */
+.container {
   background: rgba(255,255,255,0.95);
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
   padding: 30px;
   border-radius: 20px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
+/* EVENTI */
 .event {
   margin-bottom: 25px;
   font-size: 18px;
@@ -36,10 +39,7 @@ h1 {
   text-decoration: underline;
 }
 
-.buttons {
-  margin-top: 30px;
-}
-
+/* BOTTONI (UNICO STANDARD) */
 .btn {
   display: block;
   width: 260px;
@@ -58,21 +58,7 @@ h1 {
   transform: scale(1.05);
 }
 
-.box {
-  background: rgba(255,255,255,0.95);
-  max-width: 850px;
-  margin: 40px auto;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-}
-
-.note {
-  font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
+/* VIDEO */
 video {
   width: 100%;
   max-width: 750px;
@@ -83,71 +69,7 @@ video {
   background: black;
 }
 
-.placeholder {
-  margin-top: 20px;
-  padding: 30px;
-  border: 2px dashed #ff7e5f;
-  border-radius: 15px;
-  color: #777;
-  background: #fff;
-}
-
-.support-box {
-  background: rgba(255,255,255,0.95);
-  padding: 40px;
-  max-width: 600px;
-  width: 90%;
-  margin: 60px auto;
-  border-radius: 20px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-  text-align: center;
-}
-
-/* ☀️ animazione sole */
-.sun-icon {
-  font-size: 60px;
-  margin-bottom: 10px;
-  animation: pulse 3s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-
-/* 🏷 tag */
-.tag {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 8px 14px;
-  border-radius: 20px;
-  background: #ffcc33;
-  font-weight: 600;
-}
-
-/* 📧 link email */
-.back {
-  display: block;
-  margin-top: 20px;
-  color: #ff7e5f;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.back:hover {
-  text-decoration: underline;
-}
-
-.box {
-  background: rgba(255,255,255,0.95);
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 30px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-  text-align: left;
-}
-
+/* LISTE */
 ul {
   list-style: none;
   padding: 0;
@@ -164,26 +86,66 @@ li::before {
   content: "🎵 ";
 }
 
+/* SUPPORT PAGE */
+.sun-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #ffcc33;
+  font-weight: 600;
+}
+
+.back {
+  display: block;
+  margin-top: 20px;
+  color: #ff7e5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
+/* PLACEHOLDER */
+.placeholder {
+  margin-top: 20px;
+  padding: 30px;
+  border: 2px dashed #ff7e5f;
+  border-radius: 15px;
+  color: #777;
+  background: #fff;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
 
   body {
     font-size: 16px;
   }
 
-  .section {
+  .container {
     margin: 20px 10px;
     padding: 20px;
   }
 
-  .button {
+  .btn {
     width: 90%;
   }
 
   h1 {
     font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.4em;
   }
 }
