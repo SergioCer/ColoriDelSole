@@ -58,6 +58,8 @@ h1 {
 
 .btn,
 .btn-back {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
   display: block;
   width: 260px;
   margin: 12px auto;
@@ -187,6 +189,7 @@ li::before {
 
   .section-title {
     font-size: 1.4rem;
+    padding: 6px 12px;
   } 
   
   body {
