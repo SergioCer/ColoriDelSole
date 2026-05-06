@@ -92,6 +92,52 @@ video {
   background: #fff;
 }
 
+.support-box {
+  background: rgba(255,255,255,0.95);
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  margin: 60px auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* ☀️ animazione sole */
+.sun-icon {
+  font-size: 60px;
+  margin-bottom: 10px;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* 🏷 tag */
+.tag {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #ffcc33;
+  font-weight: 600;
+}
+
+/* 📧 link email */
+.back {
+  display: block;
+  margin-top: 20px;
+  color: #ff7e5f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.back:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
 
   body {
