@@ -138,6 +138,32 @@ video {
   text-decoration: underline;
 }
 
+.box {
+  background: rgba(255,255,255,0.95);
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 18px;
+}
+
+li::before {
+  content: "🎵 ";
+}
+
 @media (max-width: 768px) {
 
   body {
