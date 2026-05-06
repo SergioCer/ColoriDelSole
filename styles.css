@@ -39,35 +39,8 @@ h1 {
   text-decoration: underline;
 }
 
-/* BOTTONI */
-
-a.btn,
-a.btn-back {
-  text-decoration: none;
-}
-
-.btn::before {
-  margin-right: 8px;
-}
-
-.btn {
-  display: block;
-  width: 260px;
-  margin: 12px auto;
-  padding: 15px;
-  font-size: 18px;
-  color: white;
-  background: #4CAF50;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #3e8e41;
-  transform: scale(1.05);
-}
-
+/* 🔘 BASE BOTTONI */
+.btn,
 .btn-back {
   display: block;
   width: 260px;
@@ -75,15 +48,40 @@ a.btn-back {
   padding: 15px;
   font-size: 18px;
   color: white;
-  background: #4CAF50;
   border-radius: 10px;
   text-decoration: none;
   transition: 0.3s;
 }
 
+/* 🟢 bottone principale (HOME) */
+.btn {
+  background: #4CAF50;
+}
+
+/* 🔙 bottone secondario (INDIETRO) */
+.btn-back {
+  background: #ff7e5f;
+}
+
+/* hover condiviso */
+.btn:hover,
 .btn-back:hover {
-  background: #3e8e41;
   transform: scale(1.05);
+}
+
+/* hover differenziati */
+.btn:hover {
+  background: #3e8e41;
+}
+
+.btn-back:hover {
+  background: #e96b4d;
+}
+
+/* sicurezza link */
+a.btn,
+a.btn-back {
+  text-decoration: none;
 }
 
 /* VIDEO */
