@@ -1,1 +1,16 @@
-
+{
+  "titolo": "Festival Pusteria 2025",
+  "foto": [
+    {
+      "src": "img/pusteria/foto1.jpg",
+      "caption": "Prove in teatro"
+    },
+    {
+      "src": "img/pusteria/foto2.jpg",
+      "caption": "Concerto serale"
+    },
+    {
+      "src": "img/pusteria/foto3.jpg"
+    }
+  ]
+}
