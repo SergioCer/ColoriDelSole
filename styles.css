@@ -149,21 +149,30 @@ li::before {
 .sun-icon {
   font-size: 60px;
   margin-bottom: 10px;
-  animation: pulse 3s ease-in-out infinite;
+  animation: pulsesun 3s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes pulsesun {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.15); }
 }
 
 .tag {
   display: inline-block;
-  margin-top: 15px;
-  padding: 8px 14px;
-  border-radius: 20px;
+  margin: 25px auto;
+  padding: 12px 20px;
+  border-radius: 25px;
   background: #ffcc33;
   font-weight: 600;
+  color: #2b2b2b;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  letter-spacing: 0.5px;
+  animation: pulseTag 2.5s infinite;
+}
+
+@keyframes pulseTag {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 /* PLACEHOLDER */
