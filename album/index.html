@@ -60,10 +60,17 @@ fetch("data/eventi.json")
       card.className = "event-card";
       card.innerHTML = `
         <img src="${evento.cover}" alt="${evento.titolo}">
-        <div class="event-content">
+     <div class="event-content">
           <h3>${evento.titolo}</h3>
           <p>${evento.descrizione || ""}</p>
-        </div>
+          <p><strong>📅 Data:</strong> ${evento.data}</p>
+          <p><strong>📍 Luogo:</strong> ${evento.luogo}</p>
+     <p>
+      <a href="${evento.link}" target="_blank">
+          🌍 Sito ufficiale
+      </a>
+     </p>          
+    </div>
       `;
       card.onclick = () => {
         window.location.href = `evento.html?id=${evento.id}`;
