@@ -57,7 +57,8 @@ h1 {
 ========================= */
 
 .btn,
-.btn-back {
+.btn-back,
+.mail {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   cursor: pointer;
   display: block;
@@ -88,6 +89,17 @@ h1 {
 }
 
 .btn-back:hover {
+  background: #e96b4d;
+  transform: scale(1.07);
+}
+
+/* MAIL */
+
+.mail {
+  background: #ff8a5b;
+}
+
+.mail:hover {
   background: #e96b4d;
   transform: scale(1.07);
 }
