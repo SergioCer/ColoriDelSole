@@ -149,6 +149,32 @@ li::before {
   content: "🎵 ";
 }
 
+/* story */
+.story {
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      text-align: left;
+      line-height: 1.9;
+      font-size: 18px;
+      max-height: 65vh;
+      overflow-y: auto;
+    }
+
+    .story p {
+      margin-bottom: 22px;
+    }
+
+    .story-intro {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #ff7e5f;
+    }
+
+
 /* =========================
    SUPPORT PAGE
 ========================= */
@@ -241,4 +267,11 @@ li::before {
     display: block;
     text-align: center;
   }
+
+ .story {
+        margin: 20px 10px;
+        padding: 25px;
+        font-size: 16px;
+        line-height: 1.7;
+  }  
 }
