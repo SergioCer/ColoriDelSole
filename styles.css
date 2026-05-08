@@ -239,7 +239,8 @@ li::before {
   }
 
   .btn,
-  .btn-back {
+  .btn-back,
+  .mail {
     width: 90%;
     font-size: 16px;
   }
