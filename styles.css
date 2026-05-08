@@ -30,7 +30,7 @@ h1 {
   border-radius: 12px;
 }
 
-/* ===== CONTENITORE ===== */
+/* CONTENITORE */
 .container {
   background: rgba(255,255,255,0.95);
   max-width: 800px;
@@ -57,10 +57,7 @@ h1 {
   text-decoration: underline;
 }
 
-/* =========================
-   🔘 BOTTONI (HOME / BACK)
-========================= */
-
+/* 🔘 BUTTON */
 .btn,
 .btn-back,
 .mail {
@@ -100,7 +97,6 @@ h1 {
 }
 
 /* MAIL */
-
 .mail {
   background: #ff8a5b;
 }
@@ -117,9 +113,7 @@ h1 {
   max-width: 1000px;
 }
 
-/* =========================
-   VIDEO
-========================= */
+/* VIDEO */
 video {
   width: 100%;
   max-width: 750px;
@@ -130,9 +124,7 @@ video {
   background: black;
 }
 
-/* =========================
-   LISTE
-========================= */
+/* LISTE */
 ul {
   list-style: none;
   padding: 0;
@@ -175,9 +167,7 @@ li::before {
     }
 
 
-/* =========================
-   SUPPORT PAGE
-========================= */
+/* SUPPORT PAGE */
 .sun-icon {
   font-size: 60px;
   margin-bottom: 10px;
@@ -217,9 +207,7 @@ li::before {
   background: #fff;
 }
 
-/* =========================
-   PDF MOBILE SWITCH
-========================= */
+/* PDF MOBILE SWITCH */
 
 .pdf-desktop {
   display: block;
@@ -229,9 +217,7 @@ li::before {
   display: none;
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 @media (max-width: 768px) {
 
   .section-title {
