@@ -98,11 +98,11 @@ h1 {
 
 /* MAIL */
 .mail {
-  background: #ff8a5b;
+  background: #6bb8ff;
 }
 
 .mail:hover {
-  background: #e96b4d;
+  background: #4da3f0;
   transform: scale(1.07);
 }
 
