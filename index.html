@@ -15,20 +15,16 @@
   position: absolute;
   top: 60px;
   right: 60px;
-
   width: 180px;
   height: 180px;
   border-radius: 50%;
-
   background: radial-gradient(circle,
     #fff7b2 0%,
     #ffd166 40%,
     #ffcc33 70%,
     #ffb347 100%
   );
-
   filter: saturate(1.2) brightness(1.1);
-
   animation: sunBlink 6s ease-in-out infinite;
 }
 
@@ -51,7 +47,6 @@
     opacity: 0.8;
     filter: saturate(1.2) brightness(1.05);
   }
-
   50% {
     opacity: 1;
     filter: saturate(1.3) brightness(1.25);
@@ -119,7 +114,6 @@
   opacity: 0;
   transform: scale(1.08); /* leggero zoom iniziale */
   animation: zoomFade 3.5s ease forwards;
-
   width: 100%;
   max-width: 900px;
   height: auto;
@@ -229,9 +223,7 @@ function resetSun() {
 async function playScale() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
-
   await ctx.resume();
-
   const notes = [
     261.63,
     293.66,
@@ -246,14 +238,11 @@ async function playScale() {
   const now = ctx.currentTime;
 
   notes.forEach((freq, i) => {
-
     playNote(ctx, freq, now + i * 0.4, 0.35);
-
     setTimeout(() => {
       setSunColor(i);
     }, i * 400);
   });
-
   setTimeout(() => {
     resetSun();
   }, notes.length * 400 + 600);
@@ -262,7 +251,6 @@ async function playScale() {
  
   
 <body>
-
   <a href="#" class="sun" onclick="playScale(); return false;"></a>
   
   <div class="hero">
