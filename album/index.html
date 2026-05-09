@@ -73,12 +73,10 @@ fetch("data/eventi.json")
           <p>${evento.descrizione || ""}</p>
           <p><strong>📅 Data:</strong> ${evento.data}</p>
           <p><strong>📍 Luogo:</strong> ${evento.luogo}</p>
-     <p>
-      <a href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
-          Sito ufficiale
-      </a>
-     </p>          
     </div>
+      <a href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
+          Visita il sito ufficiale
+      </a>
       `;
       card.onclick = () => {
         window.location.href = `evento.html?id=${evento.id}`;
