@@ -55,6 +55,9 @@
 <h1>📸 Album Eventi</h1>
 <div class="container">
   <div id="gallery" class="gallery"></div>
+      <a href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
+          Visita il sito ufficiale
+      </a>
 </div>
   <a class="btn" href="../index.html">🏠 Torna alla Home</a>
 
@@ -74,9 +77,6 @@ fetch("data/eventi.json")
           <p><strong>📅 Data:</strong> ${evento.data}</p>
           <p><strong>📍 Luogo:</strong> ${evento.luogo}</p>
     </div>
-      <a href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
-          Visita il sito ufficiale
-      </a>
       `;
       card.onclick = () => {
         window.location.href = `evento.html?id=${evento.id}`;
