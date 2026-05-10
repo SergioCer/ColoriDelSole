@@ -75,10 +75,8 @@ fetch("data/eventi.json")
           <p><strong>📅 Data:</strong> ${evento.data}</p>
           <p><strong>📍 Luogo:</strong> ${evento.luogo}</p>
     </div>
-    <div class="btn">
-          <a href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
-          Visita il sito ufficiale
-      </a>
+    <div> <a class="btn" href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
+          Visita il sito ufficiale</a>
     </div>
       `;
       card.onclick = () => {
