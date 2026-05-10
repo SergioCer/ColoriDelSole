@@ -20,7 +20,7 @@
 
   },
   {
-    "id": "Natale",
+    "id": "2025natale",
     "titolo": "Rosmini",
     "cover": "img/2025natale/copertina/copertina.jpeg",
     "descrizione": "Auguri di natale 2025",
@@ -30,7 +30,7 @@
 
   },
   {
-    "id": "San Giuseppe",
+    "id": "2026sangiuseppe",
     "titolo": "Festa del santo",
     "cover": "img/2026sangiuseppe/copertina/copertina.jpg",
     "descrizione": "Festeggiamenti per San Giuseppe",
