@@ -232,5 +232,8 @@
   {"src":"img/pusteria/VOL 003.jpeg","caption":""},
   {"src":"img/pusteria/VOL 004.jpeg","caption":""},
   {"src":"img/pusteria/VOL 005.jpeg","caption":""}
-  ]
+  ],
+  "video":[ 
+  {"src": "img/2025natale/video/video.mp4","caption": "Primo video"} 
+  ]  
 }
