@@ -221,6 +221,15 @@ li::before {
   display: none;
 }
 
+/* 📌 footer */
+   footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9em;
+    opacity: 0.85;
+ }
+
+
 /* MOBILE */
 @media (max-width: 768px) {
 
