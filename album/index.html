@@ -70,9 +70,9 @@ fetch("data/eventi.json")
         <img src="${evento.cover}" alt="${evento.titolo}">
      <div class="event-content">
           <h3>${evento.titolo}</h3>
-          <div>
+        <div>
           <a class="btn" href="evento.html?id=${evento.id}" >Guarda le foto</a>
-          </div>
+        </div>
           <p>${evento.descrizione || ""}</p>
           <p><strong>📅 Data:</strong> ${evento.data}</p>
           <p><strong>📍 Luogo:</strong> ${evento.luogo}</p>
