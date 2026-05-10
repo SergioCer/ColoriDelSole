@@ -254,33 +254,41 @@
 
   /* Codice java */  
 <script>
-function playNote(context, frequency, startTime, duration) {
+function playNote(context, frequency, startTime, duration, panValue) {
   const osc = context.createOscillator();
   const gain = context.createGain();
+  const pan = context.createStereoPanner();
+  const reverb = context.createGain();
 
-  osc.type = "sine";
+  // tipo di onda più corposa
+  osc.type = "sawtooth";
   osc.frequency.setValueAtTime(frequency, startTime);
 
-  gain.gain.setValueAtTime(0.2, startTime);
+  // volume principale
+  gain.gain.setValueAtTime(0.25, startTime);
   gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
+  // panning leggero
+  pan.pan.setValueAtTime(panValue, startTime);
+
+  // riverbero semplice (gain aggiuntivo che sfuma lentamente)
+  reverb.gain.setValueAtTime(0.15, startTime);
+  reverb.gain.exponentialRampToValueAtTime(0.001, startTime + duration*1.5);
+
+  // collegamenti
   osc.connect(gain);
-  gain.connect(context.destination);
+  gain.connect(pan);
+  pan.connect(context.destination);
+  gain.connect(reverb);
+  reverb.connect(context.destination);
 
   osc.start(startTime);
   osc.stop(startTime + duration);
 }
 
-/* 🌈 colori per nota */
 const colors = [
-  "#ff4d4d", // do
-  "#ff914d", // re
-  "#ffd166", // mi
-  "#4caf50", // fa
-  "#00c9ff", // sol
-  "#3f51b5", // la
-  "#8e44ad", // si
-  "#ffffff"  // do alto
+  "#ff4d4d", "#ff914d", "#ffd166", "#4caf50",
+  "#00c9ff", "#3f51b5", "#8e44ad", "#ffffff"
 ];
 
 function setSunColor(index) {
@@ -305,28 +313,28 @@ async function playScale() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
   await ctx.resume();
+
   const notes = [
-    261.63,
-    293.66,
-    329.63,
-    349.23,
-    392.00,
-    440.00,
-    493.88,
-    523.25
+    261.63, 293.66, 329.63, 349.23,
+    392.00, 440.00, 493.88, 523.25
   ];
 
   const now = ctx.currentTime;
 
   notes.forEach((freq, i) => {
-    playNote(ctx, freq, now + i * 0.4, 0.35);
+    // panValue: da -0.5 (sinistra) a 0.5 (destra)
+    const panValue = (i / (notes.length - 1)) - 0.5;
+
+    playNote(ctx, freq, now + i * 0.4, 0.35, panValue);
+
     setTimeout(() => {
       setSunColor(i);
     }, i * 400);
   });
+
   setTimeout(() => {
     resetSun();
   }, notes.length * 400 + 600);
 }
-</script>  
+</script>
 </html>
