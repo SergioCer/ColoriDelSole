@@ -72,7 +72,7 @@ fetch("data/eventi.json")
           <h3>${evento.titolo}</h3>
         <div>
           <a class="btn" href="evento.html?id=${evento.id}" >📸 Guarda le foto</a>
-          ${evento.video && evento.video.length > 0 ? `<a class="btn" href="video.html?id=${evento.id}">🎥 Guarda i video</a>` : ''} 
+          <a class="btn" href="video.html?id=${evento.id}">🎥 Guarda i video</a>
         </div>
           <p>${evento.descrizione || ""}</p>
           <p><strong>📅 Data:</strong> ${evento.data}</p>
