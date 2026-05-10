@@ -64,10 +64,12 @@ h1 {
 .mail {
   cursor: pointer;
   display: block;
-  width: 260px;
+  width: 90%;  /* prende il 90% della larghezza della card */
+  max-width: 260px; /* mai più largo di 260px su desktop grande */
   margin: 12px auto 12px auto; /* top right bottom left */
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  padding: 15px;
+  box-sizing: border-box; /* include padding e bordo nel calcolo della larghezza */
+  padding: 12px;
   border-radius: 10px;
   color: white;
   text-align: center;
