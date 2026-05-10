@@ -260,20 +260,21 @@ function playNote(context, frequency, startTime, duration, panValue) {
   const pan = context.createStereoPanner();
   const reverb = context.createGain();
 
-  // tipo di onda più corposa
-  osc.type = "sawtooth";
+  // onda più dolce tipo triangle per arpeggio più morbido
+  osc.type = "triangle";
   osc.frequency.setValueAtTime(frequency, startTime);
 
-  // volume principale
-  gain.gain.setValueAtTime(0.25, startTime);
+  // volume principale con fade-in e fade-out più morbido
+  gain.gain.setValueAtTime(0.001, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.25, startTime + 0.05);
   gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
   // panning leggero
   pan.pan.setValueAtTime(panValue, startTime);
 
-  // riverbero semplice (gain aggiuntivo che sfuma lentamente)
-  reverb.gain.setValueAtTime(0.15, startTime);
-  reverb.gain.exponentialRampToValueAtTime(0.001, startTime + duration*1.5);
+  // riverbero semplice (gain sfuma lentamente)
+  reverb.gain.setValueAtTime(0.1, startTime);
+  reverb.gain.exponentialRampToValueAtTime(0.001, startTime + duration * 2);
 
   // collegamenti
   osc.connect(gain);
@@ -309,6 +310,7 @@ function resetSun() {
   }
 }
 
+// playScale versione arpeggiata e più dolce
 async function playScale() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
@@ -322,19 +324,21 @@ async function playScale() {
   const now = ctx.currentTime;
 
   notes.forEach((freq, i) => {
-    // panValue: da -0.5 (sinistra) a 0.5 (destra)
+    // panning naturale da sinistra a destra
     const panValue = (i / (notes.length - 1)) - 0.5;
 
-    playNote(ctx, freq, now + i * 0.4, 0.35, panValue);
+    // durata più lunga e note più vicine per effetto arpeggio
+    playNote(ctx, freq, now + i * 0.25, 0.7, panValue);
 
     setTimeout(() => {
       setSunColor(i);
-    }, i * 400);
+    }, i * 250);
   });
 
+  // reset sole dopo ultima nota
   setTimeout(() => {
     resetSun();
-  }, notes.length * 400 + 600);
+  }, notes.length * 250 + 1000);
 }
 </script>
 </html>
