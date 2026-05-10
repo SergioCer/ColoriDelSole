@@ -109,9 +109,7 @@ h1 {
   transform: scale(1.07);
 }
 
-/* =========================
-   PDF DESKTOP
-========================= */
+/* PDF DESKTOP */
 .pdf-container {
   max-width: 1000px;
 }
@@ -196,6 +194,7 @@ li::before {
   animation: pulseTag 2.5s infinite;
 }
 
+/* e la sua pulsazione */
 @keyframes pulseTag {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -211,7 +210,7 @@ li::before {
   background: #fff;
 }
 
-/* PDF MOBILE SWITCH */
+/* PDF Diversificato */
 
 .pdf-desktop {
   display: block;
@@ -221,7 +220,7 @@ li::before {
   display: none;
 }
 
-/* 📌 footer */
+/* 📌 footer o fondo pagina */
    footer {
     text-align: center;
     padding: 30px;
@@ -262,7 +261,7 @@ li::before {
     font-size: 16px;
   }
 
-  /* PDF switch */
+  /* PDF diversificato */
   .pdf-desktop {
     display: none;
   }
