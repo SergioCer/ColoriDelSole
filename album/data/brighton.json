@@ -3,4 +3,7 @@
     {"src": "img/brighton/copertina/copertina.jpg","caption": "Copertina"},
     {"src": "img/brighton/wearecoming.mp4","caption": "Stiamo arrivando"}
   ]
+  "video":[ 
+    {"src": "img/brighton/wearecoming.mp4","caption": "Stiamo arrivando"} 
+  ]  
 }
