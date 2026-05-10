@@ -306,27 +306,27 @@ async function playTheme() {
   const ctx = new AudioContext();
   await ctx.resume();
 
-// Sequenza completa "Ciuri Ciuri" (Parte A + Parte B)
+// Sequenza completa "Ciuri Ciuri" (Parte A + Parte B) ottimizzata
 const notes = [
-  // Parte A
+  // Parte A - Melodia principale
   392, 493.88, 392, 293.66, 392, 440, 493.88, 392,
   329.63, 392, 493.88, 392, 293.66, 392, 293.66, 349.23, 329.63, 261.63,
-  // Parte B
+  // Parte B - Ritornello
   329.63, 261.63, 440, 415.30, 493.88, 349.23,
   329.63, 261.63, 440, 329.63, 261.63,
   440, 415.30, 493.88, 349.23,
   329.63, 261.63, 440
 ];
-  
+
 const durations = [
   // Parte A
   0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4,
-  0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.6,
+  0.4, 0.4, 0.4, 0.4, 0.4, 0.4, 0.6, 0.6, 0.8,
   // Parte B
-  0.4, 0.4, 0.4, 0.4, 0.4, 0.4,
-  0.4, 0.4, 0.4, 0.4, 0.4,
-  0.4, 0.4, 0.4, 0.4,
-  0.4, 0.4, 0.6
+  0.4, 0.4, 0.4, 0.4, 0.4, 0.6,
+  0.4, 0.4, 0.4, 0.4, 0.6,
+  0.4, 0.4, 0.4, 0.6,
+  0.4, 0.4, 0.8
 ];
   
   let elapsed = 0;
