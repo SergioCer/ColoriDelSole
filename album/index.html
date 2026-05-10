@@ -70,18 +70,18 @@ fetch("data/eventi.json")
         <img src="${evento.cover}" alt="${evento.titolo}">
      <div class="event-content">
           <h3>${evento.titolo}</h3>
-          <h3>Guarda le foto</h3>
+          <div>
+          <a class="btn" href="evento.html?id=${evento.id}" >Guarda le foto</a>
+          </div>
           <p>${evento.descrizione || ""}</p>
           <p><strong>📅 Data:</strong> ${evento.data}</p>
           <p><strong>📍 Luogo:</strong> ${evento.luogo}</p>
     </div>
-    <div> <a class="btn" href="${evento.link}" target="_blank" onclick="event.stopPropagation()">
-          Visita il sito ufficiale</a>
+    <div> 
+      <a class="btn" href="${evento.link}" target="_blank" onclick="event.stopPropagation()"> Visita il sito ufficiale</a>
     </div>
       `;
-      card.onclick = () => {
-        window.location.href = `evento.html?id=${evento.id}`;
-      };
+      /* card.onclick = () => {window.location.href = `evento.html?id=${evento.id}`;}; */ 
       gallery.appendChild(card);
     });
   });
