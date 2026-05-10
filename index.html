@@ -260,23 +260,18 @@ function playNote(context, frequency, startTime, duration, panValue) {
   const pan = context.createStereoPanner();
   const reverb = context.createGain();
 
-  // onda più dolce tipo triangle per arpeggio più morbido
-  osc.type = "triangle";
+  osc.type = "triangle"; // onda dolce
   osc.frequency.setValueAtTime(frequency, startTime);
 
-  // volume principale con fade-in e fade-out più morbido
   gain.gain.setValueAtTime(0.001, startTime);
   gain.gain.exponentialRampToValueAtTime(0.25, startTime + 0.05);
   gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
 
-  // panning leggero
   pan.pan.setValueAtTime(panValue, startTime);
 
-  // riverbero semplice (gain sfuma lentamente)
   reverb.gain.setValueAtTime(0.1, startTime);
   reverb.gain.exponentialRampToValueAtTime(0.001, startTime + duration * 2);
 
-  // collegamenti
   osc.connect(gain);
   gain.connect(pan);
   pan.connect(context.destination);
@@ -310,35 +305,34 @@ function resetSun() {
   }
 }
 
-// playScale versione arpeggiata e più dolce
-async function playScale() {
+// "Ciuri Ciuri" mini tema
+async function playTheme() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
   await ctx.resume();
 
+  // sequenza semplificata delle note (in Hz)
   const notes = [
-    261.63, 293.66, 329.63, 349.23,
-    392.00, 440.00, 493.88, 523.25
+    392.00, 392.00, 440.00, 440.00, 392.00, 349.23, 329.63, // prima frase
+    392.00, 392.00, 440.00, 440.00, 392.00, 349.23, 329.63  // ripetizione
   ];
 
-  const now = ctx.currentTime;
+  // durata delle note (in secondi)
+  const durations = [
+    0.4, 0.4, 0.4, 0.4, 0.6, 0.6, 0.8,
+    0.4, 0.4, 0.4, 0.4, 0.6, 0.6, 1.0
+  ];
+
+  let currentTime = ctx.currentTime;
 
   notes.forEach((freq, i) => {
-    // panning naturale da sinistra a destra
-    const panValue = (i / (notes.length - 1)) - 0.5;
-
-    // durata più lunga e note più vicine per effetto arpeggio
-    playNote(ctx, freq, now + i * 0.25, 0.7, panValue);
-
-    setTimeout(() => {
-      setSunColor(i);
-    }, i * 250);
+    const panValue = (i % 2 === 0 ? -0.3 : 0.3); // alterna stereo
+    playNote(ctx, freq, currentTime, durations[i], panValue);
+    setTimeout(() => setSunColor(i % colors.length), (currentTime - ctx.currentTime + durations[i])*1000);
+    currentTime += durations[i] * 0.9; // leggero overlap per arpeggio dolce
   });
 
-  // reset sole dopo ultima nota
-  setTimeout(() => {
-    resetSun();
-  }, notes.length * 250 + 1000);
+  setTimeout(() => resetSun(), (currentTime - ctx.currentTime + 500));
 }
 </script>
 </html>
