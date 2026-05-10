@@ -1,11 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-/* icone per desktop */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap');
-.emoji {
-  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', 'Apple Color Emoji', 'Twemoji Mozilla', sans-serif;
-  font-size: 1.5em;      /* più grande rispetto al testo normale */
-  vertical-align: middle; /* allinea bene con il testo del pulsante */
-}
 
 body {
   font-family: 'Poppins', sans-serif;
