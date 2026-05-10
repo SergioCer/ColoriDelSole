@@ -154,84 +154,6 @@
     
   </style>
 </head>
-
-<script>
-function playNote(context, frequency, startTime, duration) {
-  const osc = context.createOscillator();
-  const gain = context.createGain();
-
-  osc.type = "sine";
-  osc.frequency.setValueAtTime(frequency, startTime);
-
-  gain.gain.setValueAtTime(0.2, startTime);
-  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-
-  osc.connect(gain);
-  gain.connect(context.destination);
-
-  osc.start(startTime);
-  osc.stop(startTime + duration);
-}
-
-/* 🌈 colori per nota */
-const colors = [
-  "#ff4d4d", // do
-  "#ff914d", // re
-  "#ffd166", // mi
-  "#4caf50", // fa
-  "#00c9ff", // sol
-  "#3f51b5", // la
-  "#8e44ad", // si
-  "#ffffff"  // do alto
-];
-
-function setSunColor(index) {
-  const sun = document.querySelector(".sun");
-  if (sun) {
-    sun.style.background = `radial-gradient(circle, ${colors[index]} 0%, #ffcc33 100%)`;
-  }
-}
-
-function resetSun() {
-  const sun = document.querySelector(".sun");
-  if (sun) {
-    sun.style.background = `radial-gradient(circle,
-      #fff7b2 0%,
-      #ffd166 40%,
-      #ffcc33 70%,
-      #ffb347 100%)`;
-  }
-}
-
-async function playScale() {
-  const AudioContext = window.AudioContext || window.webkitAudioContext;
-  const ctx = new AudioContext();
-  await ctx.resume();
-  const notes = [
-    261.63,
-    293.66,
-    329.63,
-    349.23,
-    392.00,
-    440.00,
-    493.88,
-    523.25
-  ];
-
-  const now = ctx.currentTime;
-
-  notes.forEach((freq, i) => {
-    playNote(ctx, freq, now + i * 0.4, 0.35);
-    setTimeout(() => {
-      setSunColor(i);
-    }, i * 400);
-  });
-  setTimeout(() => {
-    resetSun();
-  }, notes.length * 400 + 600);
-}
-</script>
- 
   
 <body>
   <a href="#" class="sun" onclick="playScale(); return false;"></a>
@@ -330,4 +252,82 @@ async function playScale() {
   </footer>
 
 </body>
+
+  /* Codice java */  
+<script>
+function playNote(context, frequency, startTime, duration) {
+  const osc = context.createOscillator();
+  const gain = context.createGain();
+
+  osc.type = "sine";
+  osc.frequency.setValueAtTime(frequency, startTime);
+
+  gain.gain.setValueAtTime(0.2, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+  osc.connect(gain);
+  gain.connect(context.destination);
+
+  osc.start(startTime);
+  osc.stop(startTime + duration);
+}
+
+/* 🌈 colori per nota */
+const colors = [
+  "#ff4d4d", // do
+  "#ff914d", // re
+  "#ffd166", // mi
+  "#4caf50", // fa
+  "#00c9ff", // sol
+  "#3f51b5", // la
+  "#8e44ad", // si
+  "#ffffff"  // do alto
+];
+
+function setSunColor(index) {
+  const sun = document.querySelector(".sun");
+  if (sun) {
+    sun.style.background = `radial-gradient(circle, ${colors[index]} 0%, #ffcc33 100%)`;
+  }
+}
+
+function resetSun() {
+  const sun = document.querySelector(".sun");
+  if (sun) {
+    sun.style.background = `radial-gradient(circle,
+      #fff7b2 0%,
+      #ffd166 40%,
+      #ffcc33 70%,
+      #ffb347 100%)`;
+  }
+}
+
+async function playScale() {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const ctx = new AudioContext();
+  await ctx.resume();
+  const notes = [
+    261.63,
+    293.66,
+    329.63,
+    349.23,
+    392.00,
+    440.00,
+    493.88,
+    523.25
+  ];
+
+  const now = ctx.currentTime;
+
+  notes.forEach((freq, i) => {
+    playNote(ctx, freq, now + i * 0.4, 0.35);
+    setTimeout(() => {
+      setSunColor(i);
+    }, i * 400);
+  });
+  setTimeout(() => {
+    resetSun();
+  }, notes.length * 400 + 600);
+}
+</script>  
 </html>
