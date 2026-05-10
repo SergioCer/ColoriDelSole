@@ -254,36 +254,86 @@
 
   /* Codice java */  
 <script>
+function playNote(ctx, frequency, startTime, duration, panValue) {
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  const pan = ctx.createStereoPanner();
+
+  osc.type = "triangle"; // onda dolce
+  osc.frequency.setValueAtTime(frequency, startTime);
+
+  // Gain con attacco e decay morbido
+  gain.gain.setValueAtTime(0.001, startTime);
+  gain.gain.exponentialRampToValueAtTime(0.25, startTime + 0.05);
+  gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+
+  pan.pan.setValueAtTime(panValue, startTime);
+
+  osc.connect(gain);
+  gain.connect(pan);
+  pan.connect(ctx.destination);
+
+  osc.start(startTime);
+  osc.stop(startTime + duration);
+}
+
+const colors = [
+  "#ff4d4d", "#ff914d", "#ffd166", "#4caf50",
+  "#00c9ff", "#3f51b5", "#8e44ad", "#ffffff"
+];
+
+function setSunColor(index) {
+  const sun = document.querySelector(".sun");
+  if (sun) {
+    sun.style.background = `radial-gradient(circle, ${colors[index]} 0%, #ffcc33 100%)`;
+  }
+}
+
+function resetSun() {
+  const sun = document.querySelector(".sun");
+  if (sun) {
+    sun.style.background = `radial-gradient(circle,
+      #fff7b2 0%,
+      #ffd166 40%,
+      #ffcc33 70%,
+      #ffb347 100%)`;
+  }
+}
+
+// 🎵 "Ciuri Ciuri" mini tema
 async function playTheme() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
   await ctx.resume();
 
-  const notes = [392,392,440,440,392,349,329];
-  const durations = [0.4,0.4,0.4,0.4,0.6,0.6,0.8];
+  const notes = [
+    392, 392, 440, 440, 392, 349, 329,  // prima frase
+    392, 392, 440, 440, 392, 349, 329,  // seconda frase
+    261, 293, 329, 349, 392             // finale dolce opzionale
+  ];
+
+  const durations = [
+    0.4, 0.4, 0.4, 0.4, 0.6, 0.6, 0.8,
+    0.4, 0.4, 0.4, 0.4, 0.6, 0.6, 0.8,
+    0.4, 0.4, 0.4, 0.6, 0.8
+  ];
+
   let elapsed = 0;
 
-  function playNote(freq, duration, pan) {
-    const osc = ctx.createOscillator();
-    const gain = ctx.createGain();
-    const panNode = ctx.createStereoPanner();
+  notes.forEach((freq, i) => {
+    const panValue = (i % 2 === 0 ? -0.3 : 0.3);
 
-    osc.type = "triangle";
-    osc.frequency.setValueAtTime(freq, ctx.currentTime);
+    // programmazione della nota con AudioContext
+    playNote(ctx, freq, ctx.currentTime + elapsed, durations[i], panValue);
 
-    gain.gain.setValueAtTime(0.1, ctx.currentTime); // volume sicuro
-    osc.connect(gain);
-    gain.connect(panNode);
-    panNode.connect(ctx.destination);
+    // cambio colore del sole sincronizzato
+    setTimeout(() => setSunColor(i % colors.length), elapsed * 1000);
 
-    osc.start(ctx.currentTime);
-    osc.stop(ctx.currentTime + duration);
-  }
-
-  notes.forEach((f,i) => {
-    setTimeout(() => playNote(f,durations[i], (i%2===0?-0.3:0.3)), elapsed*1000);
-    elapsed += durations[i]*0.9;
+    elapsed += durations[i] * 0.9; // leggero overlap per dolcezza
   });
+
+  // reset del sole alla fine
+  setTimeout(() => resetSun(), elapsed * 1000 + 300);
 }
 </script>
 </html>
