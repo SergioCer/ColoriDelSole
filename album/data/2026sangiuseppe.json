@@ -2,6 +2,10 @@
   "titolo": "2026 San Giuseppe",
   "foto": [
     {
+      "src": "img/2026sangiuseppe/copertina/copertina.jpg",
+      "caption": "Copertina"
+    },
+    {
       "src": "img/2026sangiuseppe/coro.jpg",
       "caption": "Tutto il coro al completo"
     }
