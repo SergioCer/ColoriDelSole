@@ -114,6 +114,35 @@
   }
 }
 
+
+/* lettere che cadono */
+.lyric {
+  position: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  pointer-events: none;
+  z-index: 20;
+  text-shadow: 0 0 8px rgba(0,0,0,0.4);
+
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(260px) rotate(25deg);
+  }
+}    
+
+
+
+    
 @media (max-width: 768px) {
 
   /* 🌞 sole più piccolo e spostato */
@@ -305,6 +334,9 @@ async function playTheme() {
   const ctx = new AudioContext();
   await ctx.resume();
   
+  const lyrics = "CIURI CIURI CIURI DI TUTTU L'ANNU";
+  let lyricIndex = 0;  
+  
 // Scala cromatica temperata C3 = C4/2 <- C4 -> C5 = C4*2
 // Formato Nota: Italiana-Anglosassone-Frequenza (Hz)
 // DO4 Quarta
@@ -364,12 +396,55 @@ notes.forEach((freq, i) => {
   if (freq !== null) {
     playNote(ctx, freq, ctx.currentTime + elapsed, dur, panValue);
   }
-  setTimeout(() => setSunColor(i % colors.length), elapsed * 1000);
+setTimeout(() => {
+
+  // cambia colore sole
+  setSunColor(i % colors.length);
+
+  // prende lettera successiva
+  const char = lyrics[lyricIndex % lyrics.length];
+
+  // evita gli spazi
+  if (char !== " ") {
+    dropLyric(char);
+  }
+
+  lyricIndex++;
+
+}, elapsed * 1000);
+  
   elapsed += dur; // anche per pause
+
+  
 });
 
 // reset del sole alla fine
 setTimeout(() => resetSun(), elapsed * 1000 + 300);
 }
+
+function dropLyric(letter) {
+  const sun = document.querySelector(".sun");
+
+  const el = document.createElement("div");
+  el.className = "lyric";
+  el.innerText = letter;
+
+  // posizione casuale vicino al sole
+  const rect = sun.getBoundingClientRect();
+
+  el.style.left = (rect.left + rect.width / 2 + (Math.random() * 60 - 30)) + "px";
+  el.style.top = (rect.top + rect.height / 2) + "px";
+
+  // colore casuale
+  el.style.color = colors[Math.floor(Math.random() * colors.length)];
+
+  document.body.appendChild(el);
+
+  // rimuove dopo animazione
+  setTimeout(() => {
+    el.remove();
+  }, 3000);
+}
+  
 </script>
 </html>
