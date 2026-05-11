@@ -305,7 +305,25 @@ async function playTheme() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
   const ctx = new AudioContext();
   await ctx.resume();
-
+  
+// Scala cromatica temperata C3 = C4/2 <- C4 -> C5 = C4*2
+// Formato Nota: Italiana-Anglosassone-Frequenza (Hz)
+// DO4 Quarta
+// DO - C           - 261.63
+// DO# / REb - C#   - 277.18
+// RE - D           - 293.66
+// RE# / MIb - D#   - 311.13
+// MI - E           - 329.63
+// FA - F           - 349.23
+// FA# / SOLb - F#  - 369.99
+// SOL - G          - 392.00
+// SOL# / LAb - G#  - 415.30
+// LA - A           - 440.00
+// LA# / SIb - A#   - 466.16
+// SI - B           - 493.88
+// DO5 Quinta
+// DO - C           - 523.25
+  
 // Sequenza completa "Ciuri Ciuri" (Parte A + Parte B) ottimizzata
 const notes = [
   // Parte A - Melodia principale
