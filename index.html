@@ -342,7 +342,8 @@ const durations = [
 ];
   
 let elapsed = 0;
-
+const panValue = 0; // centro
+  
 notes.forEach((freq, i) => {
   const dur = durations[i] * 0.4;  // converte unità in secondi
   if (freq !== null) {
