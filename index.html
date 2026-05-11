@@ -395,7 +395,7 @@ notes.forEach((freq, i) => {
   const dur = durations[i] * 0.8;  // converte unità in secondi
   if (freq !== null) {
     playNote(ctx, freq, ctx.currentTime + elapsed, dur, panValue);
-  }
+ 
 setTimeout(() => {
 
   // cambia colore sole
@@ -404,15 +404,11 @@ setTimeout(() => {
   // prende lettera successiva
   const char = lyrics[lyricIndex % lyrics.length];
 
-  // evita gli spazi
-  if (char !== " ") {
-    dropLyric(char);
-  }
-
+  dropLyric(char);
   lyricIndex++;
 
 }, elapsed * 1000);
-  
+ }  
   elapsed += dur; // anche per pause
 
   
